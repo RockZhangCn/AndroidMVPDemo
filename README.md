@@ -2,7 +2,7 @@
 a simple MVP Demo of Android
 
 项目博客地址：
-[http://blog.csdn.net/u014315849/article/details/50667936](http://blog.csdn.net/u014315849/article/details/50667936 "项目博客地址")
+[简书博客地址](http://www.jianshu.com/p/9d40b298eca9)
 
 demo代码流程：
 
