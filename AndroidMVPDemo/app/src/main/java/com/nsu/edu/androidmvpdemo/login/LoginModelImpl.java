@@ -8,24 +8,43 @@ import android.text.TextUtils;
  */
 public class LoginModelImpl implements LoginModel {
 
+    private String userName;
+    private String passWord;
     @Override
     public void login(final String username, final String password, final OnLoginFinishedListener listener) {
+        userName = username;
+        passWord = password;
 
         new Handler().postDelayed(new Runnable() {
             @Override public void run() {
-                boolean error = false;
                 if (TextUtils.isEmpty(username)){
                     listener.onUsernameError();//model层里面回调listener
-                    error = true;
+                    return;
                 }
+
                 if (TextUtils.isEmpty(password)){
                     listener.onPasswordError();
-                    error = true;
+                    return;
                 }
-                if (!error){
-                    listener.onSuccess();
+
+                if(!ValidUserCredentials())
+                {
+                    listener.onPasswordError();
+                    return;
                 }
+
+                listener.onSuccess();
+
             }
-        }, 2000);
+        }, 2300);
+    }
+
+    public boolean ValidUserCredentials()
+    {
+        if((userName.compareTo("rock") == 0) && (passWord.compareTo("rockzhang") == 0))
+            return true;
+        else
+            return false;
+
     }
 }

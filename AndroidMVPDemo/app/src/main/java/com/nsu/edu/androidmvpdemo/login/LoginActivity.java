@@ -41,6 +41,7 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
         findViewById(R.id.button).setOnClickListener(this);
 
         presenter = new LoginPresenterImpl(this);
+        hideProgress();
     }
 
     @Override
@@ -71,9 +72,10 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
 
     @Override
     public void navigateToHome() {
-// TODO       startActivity(new Intent(this, MainActivity.class));
+        // TODO
+        // startActivity(new Intent(this, MainActivity.class));
         Toast.makeText(this,"login success",Toast.LENGTH_SHORT).show();
-//        finish();
+        // finish();
     }
 
     @Override
